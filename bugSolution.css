@@ -1,0 +1,32 @@
+/* bugSolution.css */
+/*Instead of relying on calc(100% - 10px) which might be unreliable in dynamic contexts like flexbox, we can use more reliable and predictable alternatives based on the specific context.*/
+
+/*For example, instead of:
+.item {
+  width: calc(100% - 10px);
+}
+*/
+
+/*We can use viewport units (vw) which are relative to the viewport width:
+.item {
+  width: 90vw; /* Example */
+}
+*/
+
+/* Or, we may use an explicit width if it is possible: */
+.item {
+  width: 300px; /* Example */
+}
+
+/*When using flexbox, we need to make sure that the parent flex container has proper sizing information. We can set the parent container's width explicitly and then use calc or other CSS properties to set the item's width, or by using flex-grow/flex-shrink.*/
+.container {
+  width: 500px; /* explicit width for the flex container */
+  display: flex;
+}
+.item {
+  flex-grow: 1; /* Allows items to grow proportionally */
+  flex-shrink: 1; /* Allows items to shrink proportionally */
+  margin: 5px;
+}
+
+/*In some situations, using grid layout will offer better control over the layout than flexbox, leading to more predictable results when using `calc()` */
